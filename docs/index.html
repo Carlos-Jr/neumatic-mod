@@ -271,7 +271,7 @@
         <ul class="submenu">
           <li><a href="#" data-action="eDelete" data-i18n="eDelete">Delete</a></li>
           <li><a href="#" data-action="eMove"   data-i18n="eMove">Move</a></li>
-          <li><a href="#" data-action="eModify" data-i18n="eModify">Modify</a></li>
+          <li><a href="#" data-action="eOptions" data-i18n="eOptions">Options</a></li>
           <li><a href="#" data-action="eFlip" data-i18n="eFlip">Flip</a></li>
         </ul>
       </li>
@@ -294,7 +294,7 @@
 
   <dialog id="textPrompt">
     <form method="dialog">
-      <p id="messageInput">Texto:</p>
+      <p id="messageInput">Text:</p>
       <input type="text" name="answer" id="textInput" placeholder="Text...">
       <div style="margin-top: 16px;">
         <button id="confirmBtn" value="default">Accept</button>
@@ -451,7 +451,7 @@ const translations = {
     editMenu: 'Edit',
     eDelete: 'Delete',
     eMove: 'Move',
-    eModify: 'Modify',
+    eOptions: 'Options',
     eFlip: 'Flip',
     simulateMenu: 'Simulate',
     sInit: 'Init',
@@ -507,7 +507,7 @@ const translations = {
     editMenu: 'Editar',
     eDelete: 'Borrar',
     eMove: 'Mover',
-    eModify: 'Modificar',
+    eOptions: 'Opciones',
     eFlip: 'Voltear',
     simulateMenu: 'Simular',
     sInit: 'Iniciar',
@@ -587,7 +587,7 @@ document.addEventListener("click", (e) => {
 
     eDelete: () => { simulationStop(); drawMode='Delete'; },
     eMove: () => { simulationStop(); drawMode='Move'; },
-    eModify: () => { simulationStop(); drawMode='Modify'; },
+    eOptions: () => { simulationStop(); drawMode='Options'; },
     eFlip: () => { simulationStop(); drawMode='Flip'; },
 
     sInit: () => { simulationInit(); },
@@ -1025,6 +1025,7 @@ class Manometer extends ComponentBase {
     this.type = 'Manometer';
     this.pressure = airPressure;
     this.color = defaultColor;
+    this.selected = false;
     this.options = {
       flipped: false,
     }
@@ -1070,7 +1071,7 @@ class Manometer extends ComponentBase {
     if (this.options.flipped) {
       this.drawPort(ctx, this.x, this.y, 0, 10, this.color);
 
-      ctx.strokeStyle = defaultColor;
+      ctx.strokeStyle = (this.selected) ? selectedColor : this.color;
       ctx.beginPath();
       ctx.arc(this.x,this.y+22,12,0,Math.PI*2);
       ctx.stroke();
@@ -1080,8 +1081,7 @@ class Manometer extends ComponentBase {
       ctx.stroke();
 
       ctx.font = textFont;
-      ctx.fillStyle = defaultColor;
-      ctx.strokeStyle = defaultColor;
+      ctx.fillStyle = (this.selected) ? selectedColor : this.color;
       ctx.textAlign = "center";
       ctx.fillText((this.pressure-airPressure).toFixed(1), this.x, this.y+48);
       ctx.textAlign = "start";
@@ -1089,7 +1089,7 @@ class Manometer extends ComponentBase {
     else {
       this.drawPort(ctx, this.x, this.y, 0, -10, this.color);
 
-      ctx.strokeStyle = defaultColor;
+      ctx.strokeStyle = (this.selected) ? selectedColor : this.color2;
       ctx.beginPath();
       ctx.arc(this.x,this.y-22,12,0,Math.PI*2);
       ctx.stroke();
@@ -1099,8 +1099,7 @@ class Manometer extends ComponentBase {
       ctx.stroke();
 
       ctx.font = textFont;
-      ctx.fillStyle = defaultColor;
-      ctx.strokeStyle = defaultColor;
+      ctx.fillStyle = (this.selected) ? selectedColor : this.color;
       ctx.textAlign = "center";
       ctx.fillText((this.pressure-airPressure).toFixed(1), this.x, this.y-38);
       ctx.textAlign = "start";
@@ -1650,8 +1649,8 @@ class Cylinder1 extends ComponentBase {
     this.options = {
       massLoad: 0,
     }
-    this.frictionStatic = 0.8 * this.options.massLoad; // kgf
-    this.frictionDynamic = 0.6 * this.options.massLoad; // kgf
+    this.frictionStatic = 0.8 * (this.options.massLoad+ this.massRod); // kgf
+    this.frictionDynamic = 0.6 * (this.options.massLoad+ this.massRod); // kgf
   }
 
   vias() {
@@ -1667,8 +1666,8 @@ class Cylinder1 extends ComponentBase {
       this.options.massLoad = 100;
     if (this.options.massLoad < 0)
       this.options.massLoad = 0;
-    this.frictionStatic = 0.8 * this.options.massLoad; // kgf
-    this.frictionDynamic = 0.6 * this.options.massLoad; // kgf
+    this.frictionStatic = 0.8 * (this.options.massLoad+ this.massRod); // kgf
+    this.frictionDynamic = 0.6 * (this.options.massLoad+ this.massRod); // kgf
   }
 
   reset () {
@@ -1856,8 +1855,8 @@ class Cylinder2 extends ComponentBase {
     this.options = {
       massLoad: 5,
     }
-    this.frictionStatic = 0.8 * this.options.massLoad; // kgf
-    this.frictionDynamic = 0.6 * this.options.massLoad; // kgf
+    this.frictionStatic = 0.8 * (this.options.massLoad+ this.massRod); // kgf
+    this.frictionDynamic = 0.6 * (this.options.massLoad+ this.massRod); // kgf
   }
 
   vias() {
@@ -1874,8 +1873,8 @@ class Cylinder2 extends ComponentBase {
       this.options.massLoad = 100;
     if (this.options.massLoad < 0)
       this.options.massLoad = 0;
-    this.frictionStatic = 0.8 * this.options.massLoad; // kgf
-    this.frictionDynamic = 0.6 * this.options.massLoad; // kgf
+    this.frictionStatic = 0.8 * (this.options.massLoad+ this.massRod); // kgf
+    this.frictionDynamic = 0.6 * (this.options.massLoad+ this.massRod); // kgf
   }
 
   reset () {
@@ -3351,8 +3350,8 @@ class UIController {
       }
     }
 
-    // Modify component mode
-    if (drawMode === 'Modify') {
+    // Edit Options component mode
+    if (drawMode === 'Options') {
       for (const comp of this.engine.components) {
         if (comp.near(position)) {
           if (comp.type === 'Text') {
@@ -3693,18 +3692,45 @@ async function openFile(filename) {
 }
 
 
-function savePNG() {
+async function savePNG(filename = "image.png") {
   renderer.draw();
 
-  const dataURL = canvas.toDataURL('image/png');
-  const enlaceDescarga = document.createElement('a');
-  enlaceDescarga.href = dataURL;
-  enlaceDescarga.download = 'neumatic.png';
-  enlaceDescarga.style.display = 'none';
-  document.body.appendChild(enlaceDescarga);
-  enlaceDescarga.click();
-  document.body.removeChild(enlaceDescarga);
-  URL.revokeObjectURL(enlaceDescarga);
+  const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/png"));
+  if (!blob) {
+    console.error("Error generating PNG image.");
+    return;
+  }
+  
+  if ("showSaveFilePicker" in window) {
+    // Chrome / Edge
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{description: "PNG", accept: {"image/png": [".png"]}}]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(blob);
+      await writable.close();
+      return;
+    }
+    catch (err) {
+      if (err.name === "AbortError")
+        return;
+      console.error(err);
+    }
+  }
+  else {
+    // Firefox
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = filename;
+    downloadLink.style.display = 'none';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+  }
 }
 
 
@@ -3725,17 +3751,42 @@ function saveSchema(rol) {
   const hash = cyrb53(schematicJSON);
   schematic.push({type:'hash', hash});
   schematicJSONHash = JSON.stringify(schematic);
-
   const blob = new Blob([schematicJSONHash], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const enlaceDescarga = document.createElement('a');
-  enlaceDescarga.href = url;
-  enlaceDescarga.download = 'neumatic.txt';
-  enlaceDescarga.style.display = 'none';
-  document.body.appendChild(enlaceDescarga);
-  enlaceDescarga.click();
-  document.body.removeChild(enlaceDescarga);
-  URL.revokeObjectURL(url);
+  saveJSON(blob);
+}
+
+
+async function saveJSON(blob, filename = 'neumatic.txt') {
+  if ("showSaveFilePicker" in window) {
+    // Chrome / Edge
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{description: "Text", accept: {"text/plain": [".txt"]}}]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(blob);
+      await writable.close();
+      return;
+    }
+    catch (err) {
+      if (err.name === "AbortError")
+        return;
+      console.error(err);
+    }
+  }
+  else {
+    // Firefox
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = filename;
+    downloadLink.style.display = 'none';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+  }
 }
 
 /************************ COMPARE FILES ************************/

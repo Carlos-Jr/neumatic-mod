@@ -12,6 +12,18 @@ TO-DO
 
 * Añadir ruido blanco en los escapes de aire para dar mayor realismo.
 
+07/01/2026
+----------
+* Publicar versión 2.7.1
+
+* Añadir que en Chrome se pueda elegir nombre de archivo y lugar donde
+  guardar tanto el esquema como la imagen.
+  
+  
+05/01/2026
+----------
+* Registrar programa
+
 03/01/2026
 ----------
 * Publicar versión 2.7.
