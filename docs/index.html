@@ -1639,18 +1639,18 @@ class Cylinder1 extends ComponentBase {
     this.conductance = conductanceBase;
     this.position = {min:0, max:0.20, actual:0};
     this.volumeMin = 12; // cm3
-    this.area = 12; // cm2
-    this.springForce = 50; // kgf/m
-    this.springForceMin = 2; // kgf
+    this.area = 12.5;    // cm2 (40 mm normalized cylinder)
+    this.springForceMin = 6;    // kgf
+    this.springForceConst = 50; // kgf/m
     this.massRod = 0.5; // kg
     this.speed = 0; // cm/s
     this.color1 = defaultColor;
     this.color1w = '#fff';
     this.options = {
-      massLoad: 0,
+      massLoad: 5,
     }
-    this.frictionStatic = 0.8 * (this.options.massLoad+ this.massRod); // kgf
-    this.frictionDynamic = 0.6 * (this.options.massLoad+ this.massRod); // kgf
+    this.frictionStatic = 0.8 * (this.options.massLoad + this.massRod); // kgf
+    this.frictionDynamic = 0.6 * (this.options.massLoad + this.massRod); // kgf
   }
 
   vias() {
@@ -1721,7 +1721,7 @@ class Cylinder1 extends ComponentBase {
       volume1 = 100*this.position.actual * this.area + this.volumeMin;
       this.pressure1 = this.mass1 / volume1;
       let forcePiston = (this.pressure1 - airPressure) * this.area; // kgf
-      const forceSpring = this.springForceMin + this.position.actual*this.springForce;
+      const forceSpring = this.springForceMin + this.position.actual * this.springForceConst;
       let netForce = forcePiston - forceSpring;
 
       if (this.speed === 0) {
@@ -1840,8 +1840,8 @@ class Cylinder2 extends ComponentBase {
     this.pressure1 = 1; // bar
     this.pressure2 = 1; // bar
     this.volumeMin = 12;
-    this.area1 = 12; // cm2
-    this.area2 = 10; // cm2
+    this.area1 = 12.5; // cm2 (40 mm normalized cylinder)
+    this.area2 = 10.5; // cm2 (40 mm normalized cylinder)
     this.mass1 = 0;
     this.mass2 = 0;
     this.areaRod = this.area1 - this.area2;
