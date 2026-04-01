@@ -147,7 +147,7 @@
   </style>
 </head>
 
-<body>
+<body onbeforeunload="return closeConfirm()">
 
   <nav class="menu">
     <ul class="menu-principal">
@@ -407,6 +407,7 @@ const translations = {
 
   en: {
     title: 'Pneumatic Simulator - Picuino',
+    closeConfirm: "Are you sure you want to leave this page?",
     aboutCloseBtn: 'Close Window',
     compareCloseBtn: 'Close Window',
     compareWindowTitle: 'Pneumatic Schematic Comparison Tool',
@@ -463,6 +464,7 @@ const translations = {
 
   es: {
     title: 'Simulador Neumático - Picuino',
+    closeConfirm: "¿Realmente desea salir de la página web?",
     aboutCloseBtn: 'Cerrar Ventana',
     compareCloseBtn: 'Cerrar Ventana',
     compareWindowTitle: 'Comparador de Esquemas Neumáticos',
@@ -4099,6 +4101,11 @@ function query_read() {
     vars.push(value);
   }
   return vars;
+}
+
+// Confirm close window
+function closeConfirm() {
+  return translations[globalLang]['closeConfirm'];
 }
 
 </script>
