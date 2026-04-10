@@ -1,22 +1,74 @@
-Picuino Pneumatic Simulator
-===========================
-Copyright � 2025 Carlos F�lix Pardo Mart�n.
+# Picuino Pneumatic Simulator Modded
 
-* [Simulator in Picuino web site](https://www.picuino.com/neumatic/)
-* [Simulator in GitHub web site](https://picuino.github.io/neumatic/)
-* [Tutorial (Spanish)](https://www.picuino.com/es/mecan-neumatic-index.html)
-* [Tutorial (English)](https://www.picuino.com/en/mecan-neumatic-index.html)
-* [Source Code (html+css+js)](https://github.com/picuino/neumatic/blob/main/source/index.html)
+Este repositório é um fork do projeto original **Picuino Pneumatic Simulator**, desenvolvido por Carlos Félix Pardo Martín, com melhorias focadas em usabilidade, acessibilidade e experiência do usuário.
 
-This program is free software: you can redistribute it and/or modify it
-under the terms of the GNU General Public License as published by the
-Free Software Foundation, either version 3 of the License, or 
-(at your option) any later version.
+## 🔧 Sobre o Projeto
 
-This program is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of 
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- See the GNU General Public License for more details.
+O **Picuino Pneumatic Simulator** é uma ferramenta interativa baseada na web para simulação de circuitos pneumáticos, voltada para fins educacionais e experimentação.
 
-You should have received a copy of the GNU General Public License along
-with this program. If not, see https://www.gnu.org/licenses/gpl-3.0.html.
+## ✨ Melhorias Adicionadas neste Fork
+
+Este fork introduz diversas melhorias importantes:
+
+### 🌐 Suporte a Português (PT-BR)
+
+* Interface traduzida para português do Brasil
+* Melhor acessibilidade para usuários lusófonos
+
+### 👁️ Feedback Visual de Posicionamento
+
+* Indicação clara de onde os componentes serão inseridos
+* Maior precisão ao montar circuitos
+
+### 🖱️ Feedback de Ações com Cursor
+
+* Indicação visual no cursor para diferentes ações:
+
+  * Mover
+  * Deletar
+  * Modificar
+  * Espelhar
+* Interação mais intuitiva e direta
+
+### 🎮 Controles de Simulação Aprimorados
+
+* Botões dedicados para:
+
+  * ▶️ Play
+  * ⏸️ Pause
+  * ⏭️ Próximo passo
+  * 🔄 Reiniciar
+* Melhor controle do fluxo da simulação
+
+### ⏱️ Informações de Simulação
+
+* Exibição do tempo de simulação
+* Indicador de estado atual (rodando, pausado, etc.)
+
+## 🔗 Links do Projeto Original
+
+* Simulator (Picuino):
+  [https://www.picuino.com/neumatic/](https://www.picuino.com/neumatic/)
+
+* Simulator (GitHub Pages):
+  [https://picuino.github.io/neumatic/](https://picuino.github.io/neumatic/)
+
+* Tutorial (Espanhol):
+  [https://www.picuino.com/es/mecan-neumatic-index.html](https://www.picuino.com/es/mecan-neumatic-index.html)
+
+* Tutorial (Inglês):
+  [https://www.picuino.com/en/mecan-neumatic-index.html](https://www.picuino.com/en/mecan-neumatic-index.html)
+
+* Código-fonte original:
+  [https://github.com/picuino/neumatic/blob/main/source/index.html](https://github.com/picuino/neumatic/blob/main/source/index.html)
+
+## 📄 Licença
+
+Este projeto continua sob a licença **GNU General Public License v3.0 (GPL-3.0)**, conforme o projeto original.
+
+Você pode redistribuir e/ou modificar este software de acordo com os termos da licença publicada pela Free Software Foundation, na versão 3 da licença ou (a seu critério) qualquer versão posterior.
+
+Este programa é distribuído na expectativa de ser útil, mas **SEM QUALQUER GARANTIA**, incluindo garantias implícitas de comercialização ou adequação a um propósito específico.
+
+Para mais detalhes, consulte:
+[https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)
