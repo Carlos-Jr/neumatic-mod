@@ -144,6 +144,84 @@
     border: 1px solid #000;
   }
 
+  /* Simulation toolbar */
+  .sim-toolbar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding: 0 8px;
+    gap: 2px;
+  }
+
+  .sim-btn {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .sim-btn:hover {
+    background: #f0f0f0;
+    border-color: #ccc;
+  }
+
+  .sim-btn:active {
+    background: #ddd;
+  }
+
+  .sim-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .sim-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 8px;
+    font-size: 13px;
+    font-family: monospace;
+    color: #666;
+    user-select: none;
+    min-width: 80px;
+  }
+
+  .sim-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #aaa;
+    flex-shrink: 0;
+  }
+
+  .sim-dot.running {
+    background: #22c55e;
+    box-shadow: 0 0 4px #22c55e;
+    animation: sim-pulse 1s ease-in-out infinite;
+  }
+
+  .sim-dot.paused {
+    background: #f59e0b;
+  }
+
+  @keyframes sim-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .sim-separator {
+    width: 1px;
+    height: 20px;
+    background: #ccc;
+    margin: 0 4px;
+  }
+
   </style>
 </head>
 
@@ -276,15 +354,23 @@
         </ul>
       </li>
 
-      <li class="menu-item">
-        <div class="menu-titulo" data-i18n="simulateMenu">Simulate</div>
-        <ul class="submenu">
-          <li><a href="#" data-action="sInit"     data-i18n="sInit">Init</a></li>
-          <li><a href="#" data-action="sStep"     data-i18n="sStep">Step 's'</a></li>
-          <li><a href="#" data-action="sStop"     data-i18n="sStop">Stop</a></li>
-          <li><a href="#" data-action="sContinue" data-i18n="sContinue">Continue</a></li>
-          <li><a href="#" data-action="sReset" data-i18n="sReset">Reset</a></li>
-        </ul>
+      <li class="sim-toolbar">
+        <div class="sim-separator"></div>
+        <button class="sim-btn" data-action="sPlayPause" data-i18n-title="sInit" title="Play">
+          <svg id="simIconPlay" viewBox="0 0 16 16" fill="currentColor"><polygon points="3,1 13,8 3,15"/></svg>
+          <svg id="simIconPause" viewBox="0 0 16 16" fill="currentColor" style="display:none"><rect x="2" y="1" width="4" height="14"/><rect x="10" y="1" width="4" height="14"/></svg>
+        </button>
+        <button class="sim-btn" data-action="sStep" data-i18n-title="sStep" title="Step (s)">
+          <svg viewBox="0 0 16 16" fill="currentColor"><polygon points="2,1 9,8 2,15"/><rect x="11" y="1" width="3" height="14"/></svg>
+        </button>
+        <button class="sim-btn" data-action="sReset" data-i18n-title="sReset" title="Reset">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 8a6 6 0 0 1 10.5-4M14 8a6 6 0 0 1-10.5 4"/><polyline points="2,2 2,5.5 5.5,5.5"/><polyline points="14,14 14,10.5 10.5,10.5"/></svg>
+        </button>
+        <div class="sim-separator"></div>
+        <span class="sim-status" id="simStatus">
+          <span class="sim-dot" id="simDot"></span>
+          <span id="simTime">0.00s</span>
+        </span>
       </li>
 
     </ul>
@@ -399,6 +485,38 @@ let stepTime = null;
 let simulationActive = false;
 let activateValvesTouchingBody = true;
 let renderTime = 0;
+let ghostComponent = null;
+let positionPipeEndpoint = null;
+let simulationElapsedMs = 0;
+
+
+/* Custom SVG cursors for edit modes */
+const cursorDelete = `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><line x1="4" y1="4" x2="16" y2="16" stroke="%23e00" stroke-width="2.5" stroke-linecap="round"/><line x1="16" y1="4" x2="4" y2="16" stroke="%23e00" stroke-width="2.5" stroke-linecap="round"/></svg>') 10 10, crosshair`;
+
+const cursorFlip = `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="22" height="16"><path d="M1 8h20M1 8l5-5M1 8l5 5M21 8l-5-5M21 8l-5 5" stroke="%230066cc" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>') 11 8, pointer`;
+
+const cursorOptions = `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M2 16L12.5 5.5M12.5 5.5L16 2L14 6z" stroke="%23228B22" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="2" cy="16" r="1.5" fill="%23228B22"/></svg>') 2 16, pointer`;
+
+function updateCanvasCursor() {
+  if (drawMode === 'Move') canvas.style.cursor = 'move';
+  else if (drawMode === 'Delete') canvas.style.cursor = cursorDelete;
+  else if (drawMode === 'Flip') canvas.style.cursor = cursorFlip;
+  else if (drawMode === 'Options') canvas.style.cursor = cursorOptions;
+  else if (drawMode === 'component') canvas.style.cursor = 'crosshair';
+  else canvas.style.cursor = 'default';
+}
+
+function createGhostComponent(position) {
+  if (!componentType || componentType === 'Pipe' || componentType === 'Text') return null;
+  const constructors = {
+    Compressor, Manometer, Escape, Cylinder1, Cylinder2,
+    Valve22m, Valve32b, Valve32m, Valve32p, Valve32r, Roller,
+    Valve52m, Valve52p, ValveNret, ValveFlow, ValveOr, ValveAnd
+  };
+  const Ctor = constructors[componentType];
+  if (Ctor) return new Ctor(position);
+  return null;
+}
 
 
 /*************************************************************************/
@@ -550,7 +668,7 @@ document.addEventListener("click", (e) => {
 
 /* menu actions */
 document.addEventListener("click", (e) => {
-  const item = e.target.closest("a[data-action]");
+  const item = e.target.closest("[data-action]");
   if (!item) return;
 
   const action = item.dataset.action;
@@ -592,14 +710,20 @@ document.addEventListener("click", (e) => {
     eOptions: () => { simulationStop(); drawMode='Options'; },
     eFlip: () => { simulationStop(); drawMode='Flip'; },
 
-    sInit: () => { simulationInit(); },
+    sPlayPause: () => { simulationPlayPause(); },
     sStep: () => { simulationStep(); },
-    sStop: () => { simulationStop(); },
-    sContinue: () => { simulationContinue(); },
     sReset: () => { simulationReset(); },
   };
 
   actions[action]?.();
+  updateCanvasCursor();
+
+  // Create ghost preview for component draw mode
+  if (drawMode === 'component' && componentType !== 'Pipe') {
+    ghostComponent = createGhostComponent(mousePosition || {x: 0, y: 0});
+  } else {
+    ghostComponent = null;
+  }
 
   // Close submenus after action
   document.querySelectorAll(".submenu").forEach(sm =>
@@ -3254,6 +3378,13 @@ class Renderer{
     for (const comp of this.engine.components) {
       comp.draw(ctx);
     }
+
+    // Draw ghost preview for component placement
+    if (ghostComponent) {
+      ctx.globalAlpha = 0.4;
+      ghostComponent.draw(ctx);
+      ctx.globalAlpha = 1.0;
+    }
   }
 
   drawPosition(position) {
@@ -3290,6 +3421,11 @@ class UIController {
     this.positionCompInit = {x:0, y:0};
 
     this.canvas.addEventListener('mousedown', e => this._onDown(e));
+    this.canvas.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      this._escape();
+      this.renderer.draw();
+    });
     window.addEventListener('mousemove', e => this._onMove(e));
     window.addEventListener('mouseup', e => this._onUp(e));
     window.addEventListener("resize", e => this._resizeCanvas());
@@ -3310,14 +3446,30 @@ class UIController {
   }
 
   _escape() {
+    // Revert component being moved to its original position
+    if (componentMove) {
+      componentMove.selected = false;
+      if (componentMove.type === 'Pipe' && pipeMove && positionPipeEndpoint) {
+        if (pipeMove === 'init')
+          componentMove.moveInit(positionPipeEndpoint);
+        else
+          componentMove.moveEnd(positionPipeEndpoint);
+      } else {
+        componentMove.move(this.positionCompInit.x, this.positionCompInit.y);
+      }
+    }
+
     drawMode = null;
     componentMove = null;
+    ghostComponent = null;
+    positionPipeEndpoint = null;
     if (editPipe) {
       this.engine.deleteComponent(editPipe)
     }
     editPipe = null;
     pipeMove = null;
     initPos = null;
+    updateCanvasCursor();
   }
 
   _resizeCanvas(e) {
@@ -3473,6 +3625,12 @@ class UIController {
       if (comp !== null) {
         this.engine.addComponent(comp);
       }
+
+      // Recreate ghost for next placement (non-pipe, non-text)
+      if (componentType !== 'Pipe' && componentType !== 'Text') {
+        ghostComponent = createGhostComponent(position);
+      }
+
       this.renderer.draw();
     }
 
@@ -3493,6 +3651,7 @@ class UIController {
         }
         componentMove = null;
         pipeMove = null;
+        positionPipeEndpoint = null;
       }
       else {
         for (const comp of this.engine.components) {
@@ -3506,6 +3665,8 @@ class UIController {
             componentMove.selected = true;
             if (componentMove.type === 'Pipe') {
               pipeMove = near;
+              const ep = (near === 'init') ? comp.init : comp.end;
+              positionPipeEndpoint = {x: ep.x, y: ep.y};
             }
             break;
           }
@@ -3521,6 +3682,12 @@ class UIController {
 
     if ((drawMode === 'component') && (componentType === 'Pipe') && (initPos !== null)) {
       editPipe.moveEnd(position);
+      this.renderer.draw();
+    }
+
+    // Update ghost component position
+    if (ghostComponent && drawMode === 'component') {
+      ghostComponent.move(position.x, position.y);
       this.renderer.draw();
     }
 
@@ -3909,11 +4076,45 @@ function reportErrors(files, jsons) {
 
 /************************ SIMULATION ************************/
 
+function updateSimToolbar() {
+  const iconPlay = document.getElementById('simIconPlay');
+  const iconPause = document.getElementById('simIconPause');
+  const dot = document.getElementById('simDot');
+  const timeEl = document.getElementById('simTime');
+
+  if (simulationActive) {
+    iconPlay.style.display = 'none';
+    iconPause.style.display = '';
+    dot.className = 'sim-dot running';
+  } else {
+    iconPlay.style.display = '';
+    iconPause.style.display = 'none';
+    dot.className = (simulationElapsedMs > 0) ? 'sim-dot paused' : 'sim-dot';
+  }
+
+  const seconds = (simulationElapsedMs / 1000).toFixed(2);
+  timeEl.textContent = seconds + 's';
+}
+
+function simulationPlayPause() {
+  if (simulationActive) {
+    simulationStop();
+  } else {
+    if (engine.nodes.length > 0) {
+      simulationContinue();
+    } else {
+      simulationInit();
+    }
+  }
+}
+
 function simulationInit() {
   drawMode = null;
+  simulationElapsedMs = 0;
   engine.createNodes();
   animationID = requestAnimationFrame(simulationRender);
   simulationActive = true;
+  updateSimToolbar();
 }
 
 function simulationStep() {
@@ -3926,6 +4127,7 @@ function simulationStep() {
   if (animationID === null) {
     animationID = requestAnimationFrame(simulationRender);
   }
+  updateSimToolbar();
 }
 
 function simulationStop() {
@@ -3935,6 +4137,7 @@ function simulationStop() {
     cancelAnimationFrame(animationID);
     animationID = null;
   }
+  updateSimToolbar();
 }
 
 function simulationContinue() {
@@ -3943,15 +4146,18 @@ function simulationContinue() {
   if (animationID === null) {
     animationID = requestAnimationFrame(simulationRender);
   }
+  updateSimToolbar();
 }
 
 function simulationReset() {
   simulationStop();
+  simulationElapsedMs = 0;
   for (const comp of engine.components) {
     comp.reset();
   }
   engine.createNodes();
   renderer.draw();
+  updateSimToolbar();
 }
 
 
@@ -3967,6 +4173,7 @@ function simulationRender(ms) {
   while (simulationTime < ms) {
     engine.render(0.001);
     simulationTime += 1;
+    simulationElapsedMs += 1;
     if (stepTime && stepTime > 0)
       stepTime -= 1;
   }
@@ -3974,11 +4181,15 @@ function simulationRender(ms) {
   if (stepTime === 0) {
     stepTime = null;
     animationID = null;
+    updateSimToolbar();
   }
 
   // Aquí solo dibujas el estado actual (una vez por frame)
   if (simulationActive) {
     renderer.draw();
+    // Update time display every frame
+    const timeEl = document.getElementById('simTime');
+    timeEl.textContent = (simulationElapsedMs / 1000).toFixed(2) + 's';
   }
 
   renderTime = 100*(performance.now() - init)/animationTime;
@@ -4008,6 +4219,14 @@ function setLanguage(lang) {
     const translation = translations[lang][key];
     if (translation) {
       el.textContent = translation;
+    }
+  });
+  const titleElements = document.querySelectorAll("[data-i18n-title]");
+  titleElements.forEach(el => {
+    const key = el.getAttribute("data-i18n-title");
+    const translation = translations[lang][key];
+    if (translation) {
+      el.title = translation;
     }
   });
 }
