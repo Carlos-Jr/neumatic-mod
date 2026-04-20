@@ -258,6 +258,44 @@
 
           <li><a href="#" data-action="fSavePNG" data-i18n="fSavePNG">Save Image</a></li>
           <li><a href="#" data-action="fCompare" data-i18n="fCompare">Compare Files</a></li>
+          <li><a href="#" data-action="fResetView" data-i18n="fResetView">Reset View</a></li>
+
+          <li class="has-submenu">
+            <a href="#" data-i18n="examplesMenu">Examples</a>
+            <ul class="submenu">
+
+              <li class="has-submenu">
+                <a href="#" data-i18n="singleMenu">Single</a>
+                <ul class="submenu">
+                  <li><a href="./index.html?loadFile=single-22.txt" target="_blank" data-i18n="eSingle01">Valve 2/2</a></li>
+                  <li><a href="./index.html?loadFile=single-32.txt" target="_blank" data-i18n="eSingle02">Valve 3/2</a></li>
+                  <li><a href="./index.html?loadFile=single-32-auto.txt" target="_blank" data-i18n="eSingle03">Valve 3/2 auto</a></li>
+                  <li><a href="./index.html?loadFile=single-32-and.txt" target="_blank" data-i18n="eSingle04">Valve AND</a></li>
+                  <li><a href="./index.html?loadFile=single-32-or.txt" target="_blank" data-i18n="eSingle05">Valve OR</a></li>
+                  <li><a href="./index.html?loadFile=single-32-x2.txt" target="_blank" data-i18n="eSingle06">Valve 3/2 x2</a></li>
+                </ul>
+              </li>
+
+              <li class="has-submenu">
+                <a href="#" data-i18n="doubleMenu">Double</a>
+                <ul class="submenu">
+                  <li><a href="./index.html?loadFile=double-32-manual.txt"  target="_blank" data-i18n="eDouble01">Valve 3/2 manual</a></li>
+                  <li><a href="./index.html?loadFile=double-52-manual.txt"  target="_blank" data-i18n="eDouble02">Valve 5/2 manual</a></li>
+                  <li><a href="./index.html?loadFile=double-52-piloted.txt" target="_blank" data-i18n="eDouble03">Valve 5/2 pneu.</a></li>
+                  <li><a href="./index.html?loadFile=double-52-auto.txt"    target="_blank" data-i18n="eDouble04">Valve 5/2 + Roller + Flow</a></li>
+                </ul>
+              </li>
+
+              <li class="has-submenu">
+                <a href="#" data-i18n="multipleMenu">Multiple</a>
+                <ul class="submenu">
+                  <li><a href="./index.html?loadFile=multi-abab.txt"  target="_blank" data-i18n="eMulti01">A+ B+ A- B-</a></li>
+                  <li><a href="./index.html?loadFile=multi-abba.txt"  target="_blank" data-i18n="eMulti02">A+ B+ B- A-</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </li>
 
           <li><a href="#" data-action="fAbout" data-i18n="fAbout">About...</a></li>
         </ul>
@@ -309,49 +347,16 @@
       </li>
 
       <li class="menu-item">
-        <div class="menu-titulo" data-i18n="examplesMenu">Examples</div>
-        <ul class="submenu">
-
-          <li class="has-submenu">
-            <a href="#" data-i18n="singleMenu">Single</a>
-            <ul class="submenu">
-              <li><a href="./index.html?loadFile=single-22.txt" target="_blank" data-i18n="eSingle01">Valve 2/2</a></li>
-              <li><a href="./index.html?loadFile=single-32.txt" target="_blank" data-i18n="eSingle02">Valve 3/2</a></li>
-              <li><a href="./index.html?loadFile=single-32-auto.txt" target="_blank" data-i18n="eSingle03">Valve 3/2 auto</a></li>
-              <li><a href="./index.html?loadFile=single-32-and.txt" target="_blank" data-i18n="eSingle04">Valve AND</a></li>
-              <li><a href="./index.html?loadFile=single-32-or.txt" target="_blank" data-i18n="eSingle05">Valve OR</a></li>
-              <li><a href="./index.html?loadFile=single-32-x2.txt" target="_blank" data-i18n="eSingle06">Valve 3/2 x2</a></li>
-            </ul>
-          </li>
-
-          <li class="has-submenu">
-            <a href="#" data-i18n="doubleMenu">Double</a>
-            <ul class="submenu">
-              <li><a href="./index.html?loadFile=double-32-manual.txt"  target="_blank" data-i18n="eDouble01">Valve 3/2 manual</a></li>
-              <li><a href="./index.html?loadFile=double-52-manual.txt"  target="_blank" data-i18n="eDouble02">Valve 5/2 manual</a></li>
-              <li><a href="./index.html?loadFile=double-52-piloted.txt" target="_blank" data-i18n="eDouble03">Valve 5/2 pneu.</a></li>
-              <li><a href="./index.html?loadFile=double-52-auto.txt"    target="_blank" data-i18n="eDouble04">Valve 5/2 + Roller + Flow</a></li>
-            </ul>
-          </li>
-
-          <li class="has-submenu">
-            <a href="#" data-i18n="multipleMenu">Multiple</a>
-            <ul class="submenu">
-              <li><a href="./index.html?loadFile=multi-abab.txt"  target="_blank" data-i18n="eMulti01">A+ B+ A- B-</a></li>
-              <li><a href="./index.html?loadFile=multi-abba.txt"  target="_blank" data-i18n="eMulti02">A+ B+ B- A-</a></li>
-            </ul>
-          </li>
-
-        </ul>
-      </li>
-
-      <li class="menu-item">
         <div class="menu-titulo" data-i18n="editMenu">Edit</div>
         <ul class="submenu">
-          <li><a href="#" data-action="eDelete" data-i18n="eDelete">Delete</a></li>
+          <li><a href="#" data-action="eDelete" data-i18n="eDelete">Delete (D)</a></li>
           <li><a href="#" data-action="eMove"   data-i18n="eMove">Move</a></li>
-          <li><a href="#" data-action="eOptions" data-i18n="eOptions">Options</a></li>
+          <li><a href="#" data-action="eOptions" data-i18n="eOptions">Options (O)</a></li>
           <li><a href="#" data-action="eFlip" data-i18n="eFlip">Flip</a></li>
+          <li><a href="#" data-action="eSelect" data-i18n="eSelect">Select</a></li>
+          <li><a href="#" data-action="eCopy"   data-i18n="eCopy">Copy (Ctrl+C)</a></li>
+          <li><a href="#" data-action="ePaste"  data-i18n="ePaste">Paste (Ctrl+V)</a></li>
+          <li><a href="#" data-action="eGrid"   data-i18n="eGrid" id="menuGridItem">Toggle Grid (G)</a></li>
         </ul>
       </li>
 
@@ -384,8 +389,8 @@
       <p id="messageInput">Text:</p>
       <input type="text" name="answer" id="textInput" placeholder="Text...">
       <div style="margin-top: 16px;">
-        <button id="confirmBtn" value="default">Accept</button>
-        <button id="cancelBtn" value="cancel" formnovalidate>Cancel</button>
+        <button id="confirmBtn" value="default" data-i18n="promptAccept">Accept</button>
+        <button id="cancelBtn" value="cancel" formnovalidate data-i18n="promptCancel">Cancel</button>
       </div>
     </form>
   </dialog>
@@ -404,30 +409,37 @@
 
   <dialog id="aboutWindow">
     <div>
-    <h2>Picuino Pneumatic Simulator</h2>
-    <p><strong>Copyright © 2025 Carlos Félix Pardo Martín.</strong></p>
-    <p><strong>Email:</strong> <span style="unicode-bidi:bidi-override; direction: rtl;">moc.oniu<span style="display:none">n</span>cip&#64;sol<span style="display:none">novale</span>rac<span></p>
-    <p><strong>Original:</strong> <a href="https://www.picuino.com/neumatic/index.html" target="_blank">Pneumatic simulator original web page</a>.</p>
-    <p><strong>Tutorial:</strong>
-      <a href="https://www.picuino.com/en/mecan-neumatic-index.html" target="_blank">Pneumatics tutorial (en)</a>.
-      <a href="https://www.picuino.com/es/mecan-neumatic-index.html" target="_blank">Tutorial de neumática (es)</a>.</p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/picuino/neumatic/" target="_blank">Pneumatic Simulator source code</a>.</p>
+    <h2 id="aboutTitle">neumatic-mod</h2>
     <p>
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.</p>
+      Este é um fork do <strong>Picuino Pneumatic Simulator</strong> com melhorias
+      e novas funcionalidades desenvolvidas por
+      <a href="https://github.com/Carlos-Jr" target="_blank">Carlos Jr</a>.
+    </p>
     <p>
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.</p>
+      Funcionalidades adicionadas nesta versão: seleção múltipla, arrastar grupos,
+      copiar/colar, pan e zoom do canvas, grade de fundo configurável, atalhos de
+      teclado ampliados e melhorias gerais de usabilidade.
+    </p>
+    <p><strong>Repositório deste fork:</strong>
+      <a href="https://github.com/Carlos-Jr" target="_blank">github.com/Carlos-Jr</a>
+    </p>
+    <hr>
+    <p><strong>Projeto original:</strong>
+      <a href="https://www.picuino.com/neumatic/index.html" target="_blank">Picuino Pneumatic Simulator</a>
+      por Carlos Félix Pardo Martín.
+    </p>
+    <p><strong>Código-fonte original:</strong>
+      <a href="https://github.com/picuino/neumatic/" target="_blank">github.com/picuino/neumatic</a>
+    </p>
+    <p><strong>Tutoriais:</strong>
+      <a href="https://www.picuino.com/en/mecan-neumatic-index.html" target="_blank">Pneumatics (en)</a> ·
+      <a href="https://www.picuino.com/es/mecan-neumatic-index.html" target="_blank">Neumática (es)</a>
+    </p>
     <p>
-    You should have received a copy of the GNU General Public License
-    along with this program. If not, see
-    <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">
-    www.gnu.org/licenses/gpl-3.0.html</a>.</p>
-    <button id="aboutCloseBtn" data-i18n="aboutCloseBtn">Close Window</button>
+      Este programa é software livre, distribuído sob os termos da
+      <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3</a>.
+    </p>
+    <button id="aboutCloseBtn" data-i18n="aboutCloseBtn">Fechar Janela</button>
     </div>
   </dialog>
 
@@ -490,6 +502,28 @@ let ghostComponent = null;
 let positionPipeEndpoint = null;
 let simulationElapsedMs = 0;
 
+/* Pan state */
+let panOffset = { x: 0, y: 0 };
+let isPanning = false;
+let panStart = { x: 0, y: 0 };
+let panButton = -1;
+let spaceHeld = false;
+
+/* Zoom state */
+let zoomLevel = 1.0;
+const ZOOM_MIN = 0.2;
+const ZOOM_MAX = 5.0;
+const ZOOM_STEP = 0.1;
+
+/* Multi-select state */
+let selectionRect = null;
+let clipboard = [];
+let multiDragOffset = [];
+let isMultiDragging = false;
+
+/* Grid display */
+let showGrid = true;
+
 
 /* Custom SVG cursors for edit modes */
 const cursorDelete = `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><line x1="4" y1="4" x2="16" y2="16" stroke="%23e00" stroke-width="2.5" stroke-linecap="round"/><line x1="16" y1="4" x2="4" y2="16" stroke="%23e00" stroke-width="2.5" stroke-linecap="round"/></svg>') 10 10, crosshair`;
@@ -499,11 +533,14 @@ const cursorFlip = `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/s
 const cursorOptions = `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M2 16L12.5 5.5M12.5 5.5L16 2L14 6z" stroke="%23228B22" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="2" cy="16" r="1.5" fill="%23228B22"/></svg>') 2 16, pointer`;
 
 function updateCanvasCursor() {
-  if (drawMode === 'Move') canvas.style.cursor = 'move';
+  if (isPanning) canvas.style.cursor = 'grabbing';
+  else if (spaceHeld) canvas.style.cursor = 'grab';
+  else if (drawMode === 'Move') canvas.style.cursor = componentMove ? 'grabbing' : 'grab';
   else if (drawMode === 'Delete') canvas.style.cursor = cursorDelete;
   else if (drawMode === 'Flip') canvas.style.cursor = cursorFlip;
   else if (drawMode === 'Options') canvas.style.cursor = cursorOptions;
   else if (drawMode === 'component') canvas.style.cursor = 'crosshair';
+  else if (drawMode === 'Select') canvas.style.cursor = 'crosshair';
   else canvas.style.cursor = 'default';
 }
 
@@ -569,10 +606,22 @@ const translations = {
     cEscape: 'Escape',
     cText: 'Text',
     editMenu: 'Edit',
-    eDelete: 'Delete',
-    eMove: 'Move',
-    eOptions: 'Options',
+    eDelete: 'Delete (D)',
+    eMove: 'Move (M)',
+    eOptions: 'Options (O)',
     eFlip: 'Flip',
+    eSelect: 'Select',
+    eCopy: 'Copy (Ctrl+C)',
+    ePaste: 'Paste (Ctrl+V)',
+    fResetView: 'Reset View',
+    eGrid: 'Toggle Grid (G)',
+    promptAccept: 'Accept',
+    promptCancel: 'Cancel',
+    promptText: 'Text:',
+    promptConductance: 'Conductance (10-1000):',
+    promptPressure: 'Pressure (0.5 - 6 bar):',
+    promptReference: 'Reference:',
+    promptMassLoad: 'Mass Load (kg):',
     simulateMenu: 'Simulate',
     sInit: 'Init',
     sStep: "Step 's'",
@@ -626,10 +675,22 @@ const translations = {
     cEscape: 'Escape',
     cText: 'Texto',
     editMenu: 'Editar',
-    eDelete: 'Borrar',
-    eMove: 'Mover',
-    eOptions: 'Opciones',
+    eDelete: 'Borrar (D)',
+    eMove: 'Mover (M)',
+    eOptions: 'Opciones (O)',
     eFlip: 'Voltear',
+    eSelect: 'Seleccionar',
+    eCopy: 'Copiar (Ctrl+C)',
+    ePaste: 'Pegar (Ctrl+V)',
+    fResetView: 'Restablecer Vista',
+    eGrid: 'Alternar cuadrícula (G)',
+    promptAccept: 'Aceptar',
+    promptCancel: 'Cancelar',
+    promptText: 'Texto:',
+    promptConductance: 'Conductancia (10-1000):',
+    promptPressure: 'Presión (0.5 - 6 bar):',
+    promptReference: 'Referencia:',
+    promptMassLoad: 'Carga de masa (kg):',
     simulateMenu: 'Simular',
     sInit: 'Iniciar',
     sStep: "Paso 's'",
@@ -683,10 +744,22 @@ const translations = {
     cEscape: 'Escape',
     cText: 'Texto',
     editMenu: 'Editar',
-    eDelete: 'Excluir',
-    eMove: 'Mover',
-    eOptions: 'Opções',
+    eDelete: 'Excluir (D)',
+    eMove: 'Mover (M)',
+    eOptions: 'Opções (O)',
     eFlip: 'Espelhar',
+    eSelect: 'Selecionar',
+    eCopy: 'Copiar (Ctrl+C)',
+    ePaste: 'Colar (Ctrl+V)',
+    fResetView: 'Redefinir Vista',
+    eGrid: 'Alternar grade (G)',
+    promptAccept: 'Aceitar',
+    promptCancel: 'Cancelar',
+    promptText: 'Texto:',
+    promptConductance: 'Condutância (10-1000):',
+    promptPressure: 'Pressão (0.5 - 6 bar):',
+    promptReference: 'Referência:',
+    promptMassLoad: 'Carga de massa (kg):',
     simulateMenu: 'Simular',
     sInit: 'Iniciar',
     sStep: "Passo 's'",
@@ -768,6 +841,11 @@ document.addEventListener("click", (e) => {
     eMove: () => { simulationStop(); drawMode='Move'; },
     eOptions: () => { simulationStop(); drawMode='Options'; },
     eFlip: () => { simulationStop(); drawMode='Flip'; },
+    eSelect: () => { simulationStop(); drawMode='Select'; },
+    eCopy: () => { copySelected(); },
+    ePaste: () => { pasteClipboard(); },
+    eGrid: () => { toggleGrid(); },
+    fResetView: () => { panOffset = {x:0, y:0}; zoomLevel = 1; renderer.draw(); },
 
     sPlayPause: () => { simulationPlayPause(); },
     sStep: () => { simulationStep(); },
@@ -3425,24 +3503,87 @@ class Renderer{
 
   draw() {
     const ctx = this.ctx;
-    ctx.fillStyle = '#fff';
-    ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    const logW = this.canvas.width / canvasScale;
+    const logH = this.canvas.height / canvasScale;
 
+    // Clear canvas (screen space)
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, logW, logH);
+
+    // Version label (screen space)
     ctx.textAlign = "start";
     ctx.font = textFont;
     ctx.fillStyle = '#aaa';
     ctx.fillText('Picuino Pneumatic Simulator v' + programVersion, 8, 18);
-    this.drawPosition(mousePosition);
+
+    // World space: pan + zoom
+    ctx.save();
+    ctx.translate(panOffset.x, panOffset.y);
+    ctx.scale(zoomLevel, zoomLevel);
+
+    // Background grid
+    if (showGrid) {
+      const visX1 = -panOffset.x / zoomLevel;
+      const visY1 = -panOffset.y / zoomLevel;
+      const visX2 = (logW - panOffset.x) / zoomLevel;
+      const visY2 = (logH - panOffset.y) / zoomLevel;
+      const startX = Math.floor(visX1 / grid) * grid;
+      const startY = Math.floor(visY1 / grid) * grid;
+      ctx.save();
+      ctx.strokeStyle = '#ddd';
+      ctx.lineWidth = 0.5 / zoomLevel;
+      ctx.beginPath();
+      for (let x = startX; x <= visX2 + grid; x += grid) {
+        ctx.moveTo(x, visY1);
+        ctx.lineTo(x, visY2);
+      }
+      for (let y = startY; y <= visY2 + grid; y += grid) {
+        ctx.moveTo(visX1, y);
+        ctx.lineTo(visX2, y);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
 
     for (const comp of this.engine.components) {
       comp.draw(ctx);
     }
 
-    // Draw ghost preview for component placement
+    // Ghost preview for component placement
     if (ghostComponent) {
       ctx.globalAlpha = 0.4;
       ghostComponent.draw(ctx);
       ctx.globalAlpha = 1.0;
+    }
+
+    // Rubber-band selection rectangle
+    if (selectionRect) {
+      const rx = Math.min(selectionRect.x1, selectionRect.x2);
+      const ry = Math.min(selectionRect.y1, selectionRect.y2);
+      const rw = Math.abs(selectionRect.x2 - selectionRect.x1);
+      const rh = Math.abs(selectionRect.y2 - selectionRect.y1);
+      ctx.save();
+      ctx.strokeStyle = 'rgba(0,100,255,0.8)';
+      ctx.fillStyle = 'rgba(0,100,255,0.1)';
+      ctx.lineWidth = 1 / zoomLevel;
+      ctx.setLineDash([4 / zoomLevel, 4 / zoomLevel]);
+      ctx.fillRect(rx, ry, rw, rh);
+      ctx.strokeRect(rx, ry, rw, rh);
+      ctx.restore();
+    }
+
+    ctx.restore();
+
+    // Screen-space overlays
+    this.drawPosition(mousePosition);
+
+    // Zoom indicator
+    if (zoomLevel !== 1) {
+      ctx.save();
+      ctx.font = '12px sans-serif';
+      ctx.fillStyle = 'rgba(0,0,0,0.35)';
+      ctx.fillText(`${Math.round(zoomLevel * 100)}%`, 10, logH - 6);
+      ctx.restore();
     }
   }
 
@@ -3488,19 +3629,121 @@ class UIController {
     window.addEventListener('mousemove', e => this._onMove(e));
     window.addEventListener('mouseup', e => this._onUp(e));
     window.addEventListener("resize", e => this._resizeCanvas());
+
+    // Zoom via scroll wheel
+    this.canvas.addEventListener('wheel', e => {
+      e.preventDefault();
+      const r = this.canvas.getBoundingClientRect();
+      const cssX = e.clientX - r.left;
+      const cssY = e.clientY - r.top;
+      const oldZoom = zoomLevel;
+      const delta = e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP;
+      zoomLevel = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, zoomLevel + delta));
+      const scale = zoomLevel / oldZoom;
+      panOffset.x = cssX - scale * (cssX - panOffset.x);
+      panOffset.y = cssY - scale * (cssY - panOffset.y);
+      this.renderer.draw();
+    }, { passive: false });
+
     document.addEventListener("keydown", event => {
+      // Space: enter pan mode
+      if (event.key === ' ' && !event.ctrlKey) {
+        event.preventDefault();
+        spaceHeld = true;
+        updateCanvasCursor();
+        return;
+      }
+
+      // Zoom shortcuts
+      if (event.ctrlKey && (event.key === '+' || event.key === '=' || event.key === 'Add')) {
+        event.preventDefault();
+        zoomLevel = Math.min(ZOOM_MAX, zoomLevel + ZOOM_STEP);
+        this.renderer.draw();
+        return;
+      }
+      if (event.ctrlKey && (event.key === '-' || event.key === 'Subtract')) {
+        event.preventDefault();
+        zoomLevel = Math.max(ZOOM_MIN, zoomLevel - ZOOM_STEP);
+        this.renderer.draw();
+        return;
+      }
+      if (event.ctrlKey && event.key === '0') {
+        event.preventDefault();
+        zoomLevel = 1;
+        panOffset = { x: 0, y: 0 };
+        this.renderer.draw();
+        return;
+      }
+
+      // Select-mode shortcuts
+      if (event.ctrlKey && event.key === 'a') {
+        event.preventDefault();
+        this.engine.components.forEach(c => c.selected = true);
+        this.renderer.draw();
+        return;
+      }
+      if (event.ctrlKey && event.key === 'c') {
+        event.preventDefault();
+        copySelected();
+        return;
+      }
+      if (event.ctrlKey && event.key === 'x') {
+        event.preventDefault();
+        copySelected();
+        this.engine.components = this.engine.components.filter(c => !c.selected);
+        this.renderer.draw();
+        return;
+      }
+      if (event.ctrlKey && event.key === 'v') {
+        event.preventDefault();
+        pasteClipboard();
+        return;
+      }
+
       if (event.key === "Escape") { this._escape(); }
-      if (event.key === "Delete") { this._delete(); }
-      if (drawMode === null) {
+      if (event.key === "Delete" || event.key === "Backspace") { this._delete(); }
+
+      // Single-key shortcuts (ignore when typing in inputs)
+      const inInput = document.activeElement &&
+        ['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName);
+      if (!inInput && !event.ctrlKey && !event.altKey) {
         if (event.key === 's' || event.key === 'S') { simulationStep(); }
+        if (event.key === 'm' || event.key === 'M') {
+          simulationStop(); drawMode = 'Move'; updateCanvasCursor();
+        }
+        if (event.key === 'd' || event.key === 'D') {
+          simulationStop(); drawMode = 'Delete'; updateCanvasCursor();
+        }
+        if (event.key === 'o' || event.key === 'O') {
+          simulationStop(); drawMode = 'Options'; updateCanvasCursor();
+        }
+        if (event.key === 'g' || event.key === 'G') {
+          toggleGrid();
+          return;
+        }
       }
       this.renderer.draw();
+    });
+
+    document.addEventListener("keyup", event => {
+      if (event.key === ' ') {
+        spaceHeld = false;
+        if (isPanning && panButton === 0) {
+          isPanning = false;
+          panButton = -1;
+        }
+        updateCanvasCursor();
+      }
     });
   }
 
   _delete() {
     if ((drawMode === 'Move') && (componentMove)) {
        this.engine.deleteComponent(componentMove);
+    }
+    if (drawMode === 'Select' || drawMode === null) {
+      this.engine.components = this.engine.components.filter(c => !c.selected);
+      this.renderer.draw();
     }
   }
 
@@ -3517,6 +3760,25 @@ class UIController {
         componentMove.move(this.positionCompInit.x, this.positionCompInit.y);
       }
     }
+
+    // Revert group members when escaping a Move-mode group drag
+    if (isMultiDragging && drawMode === 'Move') {
+      for (const offset of multiDragOffset) {
+        const c = offset.comp;
+        if (c.type === 'Pipe') {
+          c.moveInit(offset.origInit);
+          c.moveEnd(offset.origEnd);
+        } else {
+          c.move(offset.origX, offset.origY);
+        }
+      }
+    }
+
+    // Clear multi-select state
+    this.engine.components.forEach(c => c.selected = false);
+    selectionRect = null;
+    isMultiDragging = false;
+    multiDragOffset = [];
 
     drawMode = null;
     componentMove = null;
@@ -3546,12 +3808,25 @@ class UIController {
 
   _getMousePos(e) {
     const r = this.canvas.getBoundingClientRect();
-    const position = {x:e.clientX - r.left, y:e.clientY - r.top};
+    const position = {
+      x: (e.clientX - r.left - panOffset.x) / zoomLevel,
+      y: (e.clientY - r.top  - panOffset.y) / zoomLevel,
+    };
     mousePosition = position;
     return position;
   }
 
   _onDown(e) {
+    // Pan: middle mouse button or Space+left
+    if (e.button === 1 || (e.button === 0 && spaceHeld)) {
+      isPanning = true;
+      panButton = e.button;
+      panStart = { x: e.clientX - panOffset.x, y: e.clientY - panOffset.y };
+      e.preventDefault();
+      updateCanvasCursor();
+      return;
+    }
+
     let position = this._getMousePos(e);
 
     // Activate manual valves
@@ -3565,34 +3840,46 @@ class UIController {
 
     // Edit Options component mode
     if (drawMode === 'Options') {
+      let optionsOpened = false;
       for (const comp of this.engine.components) {
         if (comp.near(position)) {
           if (comp.type === 'Text') {
             componentEdit = comp;
-            textPromptAssign('text', 'Text:');
+            textPromptAssign('text', 'promptText');
+            optionsOpened = true;
             break;
           }
           if (comp.type === 'ValveFlow') {
             componentEdit = comp;
-            textPromptAssign('conductance', 'Conductance (10-1000):');
+            textPromptAssign('conductance', 'promptConductance');
+            optionsOpened = true;
             break;
           }
           if (comp.type === 'Compressor') {
             componentEdit = comp;
-            textPromptAssign('pressure', 'Pressure (0.5 - ' + compressorPressure + ' bar):');
+            textPromptAssign('pressure', 'promptPressure');
+            optionsOpened = true;
             break;
           }
           if (['Valve32r', 'Roller'].includes(comp.type)) {
             componentEdit = comp;
-            textPromptAssign('reference', 'Reference:');
+            textPromptAssign('reference', 'promptReference');
+            optionsOpened = true;
             break;
           }
           if (['Cylinder1', 'Cylinder2'].includes(comp.type)) {
             componentEdit = comp;
-            textPromptAssign('massLoad', 'Mass Load (kg):');
+            textPromptAssign('massLoad', 'promptMassLoad');
+            optionsOpened = true;
             break;
           }
         }
+      }
+      if (optionsOpened) {
+        // Deactivate Options tool once the dialog is dismissed
+        textPrompt.addEventListener('close', () => {
+          if (drawMode === 'Options') { drawMode = null; updateCanvasCursor(); }
+        }, { once: true });
       }
       this.renderer.draw();
     }
@@ -3623,6 +3910,8 @@ class UIController {
       }
       if (deleteComp) {
         this.engine.deleteComponent(deleteComp);
+        drawMode = null;
+        updateCanvasCursor();
       }
       this.renderer.draw();
     }
@@ -3653,11 +3942,11 @@ class UIController {
       // Draw Text
       if (componentType === 'Text') {
         componentEdit = comp;
-        textPromptAssign('text', 'Text:');
+        textPromptAssign('text', 'promptText');
       }
       if (['Valve32r', 'Roller'].includes(componentType)) {
         componentEdit = comp;
-        textPromptAssign('reference', 'Reference:');
+        textPromptAssign('reference', 'promptReference');
       }
 
       // Draw pipe
@@ -3693,9 +3982,51 @@ class UIController {
       this.renderer.draw();
     }
 
+    // Select mode — active explicitly OR when no tool is selected
+    if (drawMode === 'Select' || drawMode === null) {
+      let clickedComp = null;
+      for (const comp of this.engine.components) {
+        if (comp.near(position)) { clickedComp = comp; break; }
+      }
+
+      if (clickedComp) {
+        if (e.shiftKey) {
+          clickedComp.selected = !clickedComp.selected;
+        } else {
+          if (!clickedComp.selected) {
+            this.engine.components.forEach(c => c.selected = false);
+            clickedComp.selected = true;
+          }
+        }
+        // Drag is disabled while simulation is running (let valve click work freely)
+        if (!simulationActive) {
+          const selected = this.engine.components.filter(c => c.selected);
+          if (selected.length > 0) {
+            isMultiDragging = true;
+            multiDragOffset = selected.map(c => {
+              if (c.type === 'Pipe') {
+                return { comp: c,
+                  initDx: c.init.x - position.x, initDy: c.init.y - position.y,
+                  endDx:  c.end.x  - position.x, endDy:  c.end.y  - position.y };
+              }
+              return { comp: c, dx: c.x - position.x, dy: c.y - position.y };
+            });
+          }
+        }
+      } else {
+        // Rubber-band: clear selection and start rect
+        if (!e.shiftKey) {
+          this.engine.components.forEach(c => c.selected = false);
+        }
+        selectionRect = { x1: position.x, y1: position.y, x2: position.x, y2: position.y };
+      }
+      this.renderer.draw();
+    }
+
     // Move component mode
     if (drawMode === 'Move') {
       if (componentMove !== null) {
+        // Place phase: finalise primary component position
         componentMove.selected = false;
         if (pipeMove === 'init')
           componentMove.moveInit(position);
@@ -3708,11 +4039,17 @@ class UIController {
           this.positionMoveInit = {x:0, y:0};
           this.positionCompInit = {x:0, y:0};
         }
+        // Finalise group members (already at correct position via _onMove)
+        isMultiDragging = false;
+        multiDragOffset = [];
         componentMove = null;
         pipeMove = null;
         positionPipeEndpoint = null;
+        drawMode = null;
+        updateCanvasCursor();
       }
       else {
+        // Pick-up phase: find clicked component
         for (const comp of this.engine.components) {
           const near = comp.near(position);
           if (near) {
@@ -3727,17 +4064,67 @@ class UIController {
               const ep = (near === 'init') ? comp.init : comp.end;
               positionPipeEndpoint = {x: ep.x, y: ep.y};
             }
+
+            // If other components are selected, move them as a group
+            const others = this.engine.components.filter(c => c.selected && c !== comp);
+            if (others.length > 0) {
+              isMultiDragging = true;
+              multiDragOffset = others.map(c => {
+                if (c.type === 'Pipe') {
+                  return { comp: c,
+                    initDx: c.init.x - position.x, initDy: c.init.y - position.y,
+                    endDx:  c.end.x  - position.x, endDy:  c.end.y  - position.y,
+                    origInit: { x: c.init.x, y: c.init.y },
+                    origEnd:  { x: c.end.x,  y: c.end.y  } };
+                }
+                return { comp: c, dx: c.x - position.x, dy: c.y - position.y,
+                         origX: c.x, origY: c.y };
+              });
+            }
             break;
           }
         }
       }
+      updateCanvasCursor();
       this.renderer.draw();
     }
     this.renderer.drawPosition(position);
   }
 
   _onMove(e){
+    // Pan
+    if (isPanning) {
+      panOffset.x = e.clientX - panStart.x;
+      panOffset.y = e.clientY - panStart.y;
+      this.renderer.draw();
+      return;
+    }
+
     let position = this._getMousePos(e);
+
+    // Rubber-band update
+    if (selectionRect) {
+      selectionRect.x2 = position.x;
+      selectionRect.y2 = position.y;
+      this.renderer.draw();
+      return;
+    }
+
+    // Multi-drag for Select/null mode (Move mode handles its own group below)
+    if (isMultiDragging && drawMode !== 'Move') {
+      for (const offset of multiDragOffset) {
+        const c = offset.comp;
+        if (c.type === 'Pipe') {
+          c.moveInit({ x: position.x + offset.initDx, y: position.y + offset.initDy });
+          c.moveEnd({  x: position.x + offset.endDx,  y: position.y + offset.endDy  });
+        } else {
+          c.move(position.x + offset.dx, position.y + offset.dy);
+        }
+      }
+      this.renderer.draw();
+      this.renderer.drawPosition(position);
+      return;
+    }
 
     if ((drawMode === 'component') && (componentType === 'Pipe') && (initPos !== null)) {
       editPipe.moveEnd(position);
@@ -3761,6 +4148,18 @@ class UIController {
         const x = position.x - this.positionMoveInit.x + this.positionCompInit.x;
         const y = position.y - this.positionMoveInit.y + this.positionCompInit.y;
         componentMove.move(x, y);
+        // Move group members together
+        if (isMultiDragging) {
+          for (const offset of multiDragOffset) {
+            const c = offset.comp;
+            if (c.type === 'Pipe') {
+              c.moveInit({ x: position.x + offset.initDx, y: position.y + offset.initDy });
+              c.moveEnd({  x: position.x + offset.endDx,  y: position.y + offset.endDy  });
+            } else {
+              c.move(position.x + offset.dx, position.y + offset.dy);
+            }
+          }
+        }
       }
       this.renderer.draw();
     }
@@ -3768,6 +4167,37 @@ class UIController {
   }
 
   _onUp(e){
+    // End pan
+    if (isPanning && e.button === panButton) {
+      isPanning = false;
+      panButton = -1;
+      updateCanvasCursor();
+      return;
+    }
+
+    // End multi-drag
+    if (isMultiDragging) {
+      isMultiDragging = false;
+      multiDragOffset = [];
+      this.renderer.draw();
+      return;
+    }
+
+    // Finalise rubber-band selection
+    if (selectionRect) {
+      const rect = selectionRect;
+      const minX = Math.min(rect.x1, rect.x2);
+      const maxX = Math.max(rect.x1, rect.x2);
+      const minY = Math.min(rect.y1, rect.y2);
+      const maxY = Math.max(rect.y1, rect.y2);
+      for (const comp of this.engine.components) {
+        if (compInRect(comp, minX, minY, maxX, maxY)) {
+          comp.selected = true;
+        }
+      }
+      selectionRect = null;
+      this.renderer.draw();
+    }
   }
 
 }
@@ -3823,11 +4253,8 @@ function swapScreen() {
 
 function aboutWindowShow() {
   const aboutWindow = document.getElementById('aboutWindow');
-  const aboutWindowTitle = document.querySelector('#aboutWindow h2');
-
-  console.log('Picuino Pneumatic Simulator v' + programVersion);
-  console.log('Copyright © 2025 Carlos Félix Pardo Martín.');
-  aboutWindowTitle.innerHTML = 'Picuino Pneumatic Simulator v' + programVersion;
+  const aboutWindowTitle = document.getElementById('aboutTitle');
+  aboutWindowTitle.textContent = 'neumatic-mod v' + programVersion;
   aboutWindow.showModal();
 }
 
@@ -3835,6 +4262,106 @@ function resetEditor() {
    engine.reset();
    renderer.draw();
 }
+
+/* Check if a component falls inside an axis-aligned rect (content space) */
+function compInRect(comp, minX, minY, maxX, maxY) {
+  if (comp.type === 'Pipe') {
+    const inI = comp.init.x >= minX && comp.init.x <= maxX &&
+                comp.init.y >= minY && comp.init.y <= maxY;
+    const inE = comp.end.x >= minX && comp.end.x <= maxX &&
+                comp.end.y >= minY && comp.end.y <= maxY;
+    return inI || inE;
+  }
+  return comp.x >= minX && comp.x <= maxX && comp.y >= minY && comp.y <= maxY;
+}
+
+/* Build a component instance from a serialized data object (no timestamp copy) */
+function createComponentFromData(data) {
+  let comp = null;
+  const pos = { x: data.x || 0, y: data.y || 0 };
+  if (data.type === 'Compressor') comp = new Compressor(pos);
+  else if (data.type === 'Manometer')  comp = new Manometer(pos);
+  else if (data.type === 'Escape')     comp = new Escape(pos);
+  else if (data.type === 'Cylinder1')  comp = new Cylinder1(pos);
+  else if (data.type === 'Cylinder2')  comp = new Cylinder2(pos);
+  else if (data.type === 'Valve22m')   comp = new Valve22m(pos);
+  else if (data.type === 'Valve32b')   comp = new Valve32b(pos);
+  else if (data.type === 'Valve32m')   comp = new Valve32m(pos);
+  else if (data.type === 'Valve32p')   comp = new Valve32p(pos);
+  else if (data.type === 'Valve52m')   comp = new Valve52m(pos);
+  else if (data.type === 'Valve52p')   comp = new Valve52p(pos);
+  else if (data.type === 'ValveFlow')  comp = new ValveFlow(pos);
+  else if (data.type === 'ValveOr')    comp = new ValveOr(pos);
+  else if (data.type === 'ValveAnd')   comp = new ValveAnd(pos);
+  else if (data.type === 'Text')       comp = new Text(pos);
+  else if (data.type === 'Valve32r')   comp = new Valve32r(pos);
+  else if (data.type === 'Roller')     comp = new Roller(pos);
+  else if (data.type === 'ValveNret')  comp = new ValveNret(pos);
+  else if (data.type === 'Pipe')       comp = new Pipe(data.init, data.end);
+  if (comp && data.options) {
+    Object.assign(comp.options, data.options);
+    comp.validateOptions();
+  }
+  return comp;
+}
+
+function toggleGrid() {
+  showGrid = !showGrid;
+  const item = document.getElementById('menuGridItem');
+  if (item) item.style.fontWeight = showGrid ? 'bold' : 'normal';
+  renderer.draw();
+}
+
+function copySelected() {
+  clipboard = engine.components
+    .filter(c => c.selected)
+    .map(c => JSON.parse(JSON.stringify(c.serialize())));
+}
+
+function pasteClipboard() {
+  if (clipboard.length === 0) return;
+
+  // Calculate the bounding-box center of the clipboard items
+  let sumX = 0, sumY = 0, count = 0;
+  for (const data of clipboard) {
+    if (data.type === 'Pipe') {
+      sumX += data.init.x + data.end.x;
+      sumY += data.init.y + data.end.y;
+      count += 2;
+    } else {
+      sumX += data.x || 0;
+      sumY += data.y || 0;
+      count += 1;
+    }
+  }
+  const centerX = count > 0 ? sumX / count : 0;
+  const centerY = count > 0 ? sumY / count : 0;
+
+  // Target: mouse position or +20px fallback
+  const targetX = mousePosition ? snap(mousePosition.x) : centerX + 20;
+  const targetY = mousePosition ? snap(mousePosition.y) : centerY + 20;
+  const dx = targetX - centerX;
+  const dy = targetY - centerY;
+
+  engine.components.forEach(c => c.selected = false);
+  for (const data of clipboard) {
+    const d = JSON.parse(JSON.stringify(data));
+    if (d.type === 'Pipe') {
+      d.init = { x: snap(d.init.x + dx), y: snap(d.init.y + dy) };
+      d.end  = { x: snap(d.end.x  + dx), y: snap(d.end.y  + dy) };
+    } else {
+      d.x = snap((d.x || 0) + dx);
+      d.y = snap((d.y || 0) + dy);
+    }
+    const comp = createComponentFromData(d);
+    if (comp) {
+      comp.selected = true;
+      engine.addComponent(comp);
+    }
+  }
+  renderer.draw();
+}
+
 
 function loadSchema(schematicJSON) {
   if (!schematicJSON) return;
@@ -4347,7 +4874,9 @@ function snap(v, gr=grid) {
 }
 
 
-function textPromptAssign(key, message) {
+function textPromptAssign(key, i18nKey) {
+  const message = (translations[globalLang] && translations[globalLang][i18nKey])
+    || i18nKey;
   textPromptDialog(componentEdit.options[key], message);
 
   textPrompt.addEventListener('close', () => {

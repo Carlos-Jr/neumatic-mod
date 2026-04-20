@@ -6,44 +6,20 @@ Este repositório é um fork do projeto original **Picuino Pneumatic Simulator**
 
 O **Picuino Pneumatic Simulator** é uma ferramenta interativa baseada na web para simulação de circuitos pneumáticos, voltada para fins educacionais e experimentação.
 
-## ✨ Melhorias Adicionadas neste Fork
+## ✨ Funcionalidades
 
-Este fork introduz diversas melhorias importantes:
+Este fork deixa o simulador mais simples de usar e mais confortável para montar circuitos:
 
-### 🌐 Suporte a Português (PT-BR)
-
-* Interface traduzida para português do Brasil
-* Melhor acessibilidade para usuários lusófonos
-
-### 👁️ Feedback Visual de Posicionamento
-
-* Indicação clara de onde os componentes serão inseridos
-* Maior precisão ao montar circuitos
-
-### 🖱️ Feedback de Ações com Cursor
-
-* Indicação visual no cursor para diferentes ações:
-
-  * Mover
-  * Deletar
-  * Modificar
-  * Espelhar
-* Interação mais intuitiva e direta
-
-### 🎮 Controles de Simulação Aprimorados
-
-* Botões dedicados para:
-
-  * ▶️ Play
-  * ⏸️ Pause
-  * ⏭️ Próximo passo
-  * 🔄 Reiniciar
-* Melhor controle do fluxo da simulação
-
-### ⏱️ Informações de Simulação
-
-* Exibição do tempo de simulação
-* Indicador de estado atual (rodando, pausado, etc.)
+* Interface em português do Brasil
+* Grade na área de desenho para facilitar o alinhamento dos componentes
+* Zoom para aproximar ou afastar o circuito
+* Movimentação da área de desenho para navegar melhor pelo projeto
+* Copiar e colar componentes
+* Feedback visual para posicionar, mover, deletar, modificar e espelhar componentes
+* Controles de simulação com play, pause, próximo passo e reiniciar
+* Exibição do tempo e do estado atual da simulação
+* Atalhos de teclado, como `D` para deletar e `M` para mover
+* Outras melhorias de usabilidade para deixar a criação dos circuitos mais rápida
 
 ## 🔗 Links do Projeto Original
 
