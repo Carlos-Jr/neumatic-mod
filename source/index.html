@@ -3521,12 +3521,6 @@ class Renderer{
     ctx.fillStyle = '#fff';
     ctx.fillRect(0, 0, logW, logH);
 
-    // Version label (screen space)
-    ctx.textAlign = "start";
-    ctx.font = textFont;
-    ctx.fillStyle = '#aaa';
-    ctx.fillText('Picuino Pneumatic Simulator v' + programVersion, 8, 18);
-
     // World space: pan + zoom
     ctx.save();
     ctx.translate(panOffset.x, panOffset.y);
@@ -3657,6 +3651,11 @@ class UIController {
     }, { passive: false });
 
     document.addEventListener("keydown", event => {
+      // Ignore canvas shortcuts while any modal dialog is open
+      if (document.querySelector('dialog[open]')) {
+        return;
+      }
+
       // Space: enter pan mode
       if (event.key === ' ' && !event.ctrlKey) {
         event.preventDefault();
