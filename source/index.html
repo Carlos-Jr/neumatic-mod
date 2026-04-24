@@ -1301,6 +1301,7 @@ class Manometer extends ComponentBase {
   }
 
   reset() {
+    this.pressure = airPressure;
     this.color = defaultColor;
   }
 
@@ -1753,7 +1754,7 @@ class ValveAnd extends ComponentBase {
   }
 
   reset () {
-    this.shift = maxShift * 0.5;
+    this.shift = this.maxShift * 0.5;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
     this.color3 = defaultColor;
@@ -1937,6 +1938,7 @@ class Cylinder1 extends ComponentBase {
     this.position.actual = this.position.min;
     this.pressure1 = airPressure;
     this.mass1 = 0;
+    this.speed = 0;
     this.shift = 0;
     this.color1 = defaultColor;
     this.color1w = '#fff';
@@ -2146,6 +2148,7 @@ class Cylinder2 extends ComponentBase {
     this.pressure2 = airPressure;
     this.mass1 = 0;
     this.mass2 = 0;
+    this.speed = 0;
     this.shift = 0;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
@@ -2330,6 +2333,7 @@ class Valve22m extends ComponentBase {
 
   reset () {
     this.shift.pos = this.shift.min;
+    this.active = false;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
   }
@@ -2460,6 +2464,8 @@ class Valve32b extends ComponentBase {
 
   reset () {
     this.shift.pos = this.shift.min;
+    this.active = false;
+    this.timeActive = 0;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
     this.color3 = defaultColor;
@@ -2618,6 +2624,7 @@ class Valve32m extends ComponentBase {
 
   reset () {
     this.shift.pos = this.shift.min;
+    this.active = false;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
     this.color3 = defaultColor;
@@ -2772,6 +2779,7 @@ class Valve32r extends ComponentBase {
 
   reset () {
     this.shift.pos = this.shift.min;
+    this.active = false;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
     this.color3 = defaultColor;
@@ -3017,6 +3025,7 @@ class Valve32p extends ComponentBase {
 
   reset () {
     this.shift.pos = this.shift.min;
+    this.active = false;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
     this.color3 = defaultColor;
@@ -3169,6 +3178,7 @@ class Valve52m extends ComponentBase {
 
   reset () {
     this.shift.pos = this.shift.min;
+    this.active = false;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
     this.color3 = defaultColor;
@@ -3303,6 +3313,7 @@ class Valve52p extends ComponentBase {
 
   reset () {
     this.shift.pos = this.shift.min;
+    this.active = false;
     this.color1 = defaultColor;
     this.color2 = defaultColor;
     this.color3 = defaultColor;
